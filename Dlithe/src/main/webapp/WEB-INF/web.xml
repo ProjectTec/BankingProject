@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>Dlithe</display-name>
+  <welcome-file-list>
+    <welcome-file>splash.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>SignupServlet</servlet-name>
+    <servlet-class>com.light.SignupServlet</servlet-class>
+</servlet>
+<servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.light.LoginServlet</servlet-class>
+</servlet>
+<servlet>
+    <servlet-name>NewCustomerServlet</servlet-name>
+    <servlet-class>com.light.NewCustomerServlet</servlet-class>
+</servlet>
+
+<servlet>
+    <servlet-name>AddpayeeServlet</servlet-name>
+    <servlet-class>com.light.AddpayeeServlet</servlet-class>
+</servlet>
+<servlet>
+    <servlet-name>DisplaypayeeServlet</servlet-name>
+    <servlet-class>com.light.DisplaypayeeServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>SignupServlet</servlet-name>
+    <url-pattern>/SignupServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>NewCustomerServlet</servlet-name>
+    <url-pattern>/NewCustomerServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>AddpayeeServlet</servlet-name>
+    <url-pattern>/AddpayeeServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>DisplaypayeeServlet</servlet-name>
+    <url-pattern>/DisplaypayeeServlet</url-pattern>
+</servlet-mapping>
+</web-app>

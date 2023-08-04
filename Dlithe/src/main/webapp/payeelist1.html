@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Payee List</title>
+    <style>
+		#payeeList{
+			display: flex;
+			 padding: 10px;
+			 gap: 10px;
+		}
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 10%;
+            height: 30px;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 150%;
+            color: black;
+            background:orange;
+            
+        }
+
+        .options {
+            display: none;
+            margin-top: 10px;
+            padding: 5px;
+
+            
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Payees:</h1>
+    <div id="payeeList"></div>
+
+    <script>
+        // Retrieve the payee names from the cookie
+        const payeeNames = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)payeeNames\s*=\s*([^;]*).*$)|^.*$/, "$1")).split('|');
+        const payeeListDiv = document.getElementById("payeeList");
+
+        payeeNames.forEach(function (name) {
+            if (name !== "") {
+                const cardDiv = document.createElement("div");
+                cardDiv.className = "card";
+                cardDiv.textContent = name;
+
+                cardDiv.addEventListener("click", function() {
+                    toggleOptions(cardDiv);
+                });
+
+                const optionsDiv = document.createElement("div");
+                optionsDiv.className = "options";
+
+                const editButton = document.createElement("button");
+                editButton.textContent = "Edit";
+                editButton.addEventListener("click", function(event) {
+                    event.stopPropagation();
+                    handleEditPayee(name);
+                });
+                optionsDiv.appendChild(editButton);
+
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "Delete";
+                deleteButton.addEventListener("click", function(event) {
+                    event.stopPropagation();
+                    handleDeletePayee(name);
+                });
+                optionsDiv.appendChild(deleteButton);
+
+                cardDiv.appendChild(optionsDiv);
+                payeeListDiv.appendChild(cardDiv);
+            }
+        });
+
+        function toggleOptions(cardDiv) {
+            const optionsDiv = cardDiv.querySelector(".options");
+            optionsDiv.style.display = optionsDiv.style.display === "none" ? "block" : "none";
+        }
+
+        function handleEditPayee(payeeName) {
+            // Redirect to editpayee.html passing the payee name as a query parameter
+            window.location.href = "editpayee.html?payee=" + encodeURIComponent(payeeName);
+        }
+
+        function handleDeletePayee(payeeName) {
+            // Redirect to deletepayee.html passing the payee name as a query parameter
+            window.location.href = "deletepayee.html?payee=" + encodeURIComponent(payeeName);
+        }
+    </script>
+</body>
+</html>

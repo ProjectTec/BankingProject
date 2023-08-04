@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Payee List</title>
+    <style>
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4272d2;
+            color: white;
+            cursor: pointer;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div name="1st">
+        <form action="DisplaypayeeServlet" method="post">
+            <button type="submit">See My Payees</button>
+        </form>
+    </div>
+    <div id="payeeList"></div>
+
+    <input type="hidden" id="payeeNames" value='<%= JSON.stringify(request.getAttribute("payeeNames")) %>'>
+
+   <script>
+        // Retrieve the payee names from the hidden input field
+ //       const payeeNames = JSON.parse(document.getElementById("payeeNames").value);
+ //       const payeeListDiv = document.getElementById("payeeList");
+//
+ //       payeeNames.forEach(function (name) {
+ //           if (name !== "") {
+//                const cardDiv = document.createElement("div");
+//                cardDiv.className = "card";
+//                cardDiv.textContent = name;
+//                payeeListDiv.appendChild(cardDiv);
+//           }
+//        });
+  </script>
+</body>
+</html>

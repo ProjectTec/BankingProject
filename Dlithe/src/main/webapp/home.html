@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleshome.css">
+</head>
+<body>
+    <main>
+        <div class="main">
+            <img src="web.jpg" class="image">
+        </div>
+        <div class="button-container">
+            <button type="button" class="btn1">Make Payment</button>
+            <button type="button" class="btn2" onclick="redirectToAddPayee()">Add Payee</button>
+            <button type="button" class="btn3" onclick="displayPayees()">See Payee</button>
+            <button type="button" class="btn4">View Balance</button>
+            <button type="button" class="btn5">View History</button>
+        </div>
+        <div id="payeeContainer"></div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function redirectToAddPayee() {
+            window.location.href = "addpayee.html";
+        }
+
+        function displayPayees() {
+            window.location.href= "payeelist.html"
+        }
+
+    </script>
+</body>
+</html>
